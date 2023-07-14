@@ -144,9 +144,9 @@ export class BingoBoardComponent implements OnInit {
 
   showCelebration() {
     const confettiSettings = {
-      count: 100,
-      size: 10,
-      colors: ['#ff0000', '#00ff00', '#0000ff']
+      count: 1000,
+      size: 3,
+      colors: ['#ff0000', '#00ff00', '#0000ff', '#FFD500FF' ]
     };
 
     party.confetti(document.body, confettiSettings);
