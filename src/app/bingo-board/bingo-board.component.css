@@ -1,0 +1,29 @@
+table {
+  border-collapse: collapse;
+  background: rgb(255, 255, 255, 0.8);
+}
+
+td {
+  border: 3px solid gray;
+  padding: 10px;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: sans-serif;
+}
+
+.clicked {
+  background-image: linear-gradient(to bottom right, yellow, #ffc400, salmon);
+}
+
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}

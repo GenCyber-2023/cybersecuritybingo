@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-size: cover;
+  background-image: url("https://policyoptions.irpp.org/wp-content/uploads/sites/2/2019/07/Facebook-The-critical-shortage-of-cybersecurity-expertise.jpg");
+}

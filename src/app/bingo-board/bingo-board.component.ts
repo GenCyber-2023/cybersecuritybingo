@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+// @ts-ignore
+import ConfettiGenerator from 'confetti-js';
+
 
 interface Square {
   term: string;
@@ -20,21 +23,58 @@ export class BingoBoardComponent implements OnInit {
 
   generateBoard() {
     const words: string[] = [
-      'Firewall',
-      'Encryption',
-      'Virus',
-      'Malware',
-      'Phishing',
-      'Password',
-      'Hacker',
-      'Patch',
+      'Antivirus',
       'Authentication',
-      'Intrusion',
+      'Backdoor',
+      'Botnet',
+      'Brute force',
+      'Cipher',
+      'Clickjacking',
+      'Cloud security',
+      'Computer virus',
+      'Cyber attack',
       'Cybersecurity',
-      'Endpoint',
       'Data breach',
-      'Network',
-      'Antivirus'
+      'DDoS',
+      'Encryption',
+      'Exploit',
+      'Firewall',
+      'Hacker',
+      'Identity theft',
+      'IoT security',
+      'Keylogger',
+      'Malware',
+      'Man-in-the-middle attack',
+      'Network security',
+      'Password cracking',
+      'Patch',
+      'Penetration testing',
+      'Phishing',
+      'Ransomware',
+      'Rootkit',
+      'Secure socket layer (SSL)',
+      'Social engineering',
+      'Spam',
+      'Spoofing',
+      'Spyware',
+      'Trojan horse',
+      'Two-factor authentication',
+      'URL filtering',
+      'Virtual private network (VPN)',
+      'Vulnerability',
+      'WAF',
+      'Watering hole attack',
+      'Whitelist',
+      'Wireless security',
+      'Zero-day exploit',
+      'Zombie',
+      'Zone transfer',
+      'Antispyware',
+      'Antimalware',
+      'Antiphishing',
+      'Antispam',
+      'Backup',
+      'Biometrics'
     ];
 
     this.board = [];
@@ -51,5 +91,66 @@ export class BingoBoardComponent implements OnInit {
 
   toggleSquare(rowIndex: number, colIndex: number) {
     this.board[rowIndex][colIndex].clicked = !this.board[rowIndex][colIndex].clicked;
+    if (this.checkWin()) {
+      this.showCelebration();
+    }
+  }
+
+  checkWin(): boolean {
+    const rows = this.board.length;
+    const cols = this.board[0].length;
+
+    // Check rows
+    for (let i = 0; i < rows; i++) {
+      let count = 0;
+      for (let j = 0; j < cols; j++) {
+        if (this.board[i][j].clicked) {
+          count++;
+        }
+      }
+      if (count === 5) {
+        return true;
+      }
+    }
+
+    // Check columns
+    for (let j = 0; j < cols; j++) {
+      let count = 0;
+      for (let i = 0; i < rows; i++) {
+        if (this.board[i][j].clicked) {
+          count++;
+        }
+      }
+      if (count === 5) {
+        return true;
+      }
+    }
+
+    // Check diagonals
+    let countDiagonal1 = 0;
+    let countDiagonal2 = 0;
+    for (let i = 0; i < rows; i++) {
+      if (this.board[i][i].clicked) {
+        countDiagonal1++;
+      }
+      if (this.board[i][cols - i - 1].clicked) {
+        countDiagonal2++;
+      }
+    }
+    if (countDiagonal1 === 5 || countDiagonal2 === 5) {
+      return true;
+    }
+
+    return false;
+  }
+
+  showCelebration() {
+    const confettiSettings = { target: 'confetti-container' };
+    const confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+
+    setTimeout(() => {
+      confetti.clear();
+    }, 5000);
   }
 }
