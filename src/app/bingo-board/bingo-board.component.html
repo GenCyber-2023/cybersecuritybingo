@@ -1,0 +1,9 @@
+<table>
+  <tr *ngFor="let row of board; let rowIndex = index">
+    <td *ngFor="let square of row; let colIndex = index"
+        (click)="toggleSquare(rowIndex, colIndex)"
+        [ngClass]="{'clicked': square.clicked}">
+      {{ square.term }}
+    </td>
+  </tr>
+</table>
