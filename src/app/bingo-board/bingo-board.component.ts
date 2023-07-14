@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
-import ConfettiGenerator from 'confetti-js';
-
+import * as party from "party-js";
 
 interface Square {
   term: string;
@@ -145,12 +143,12 @@ export class BingoBoardComponent implements OnInit {
   }
 
   showCelebration() {
-    const confettiSettings = { target: 'confetti-container' };
-    const confetti = new ConfettiGenerator(confettiSettings);
-    confetti.render();
+    const confettiSettings = {
+      count: 100,
+      size: 10,
+      colors: ['#ff0000', '#00ff00', '#0000ff']
+    };
 
-    setTimeout(() => {
-      confetti.clear();
-    }, 5000);
+    party.confetti(document.body, confettiSettings);
   }
 }

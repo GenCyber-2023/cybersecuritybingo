@@ -15,7 +15,7 @@ td {
 }
 
 .clicked {
-  background-image: linear-gradient(to bottom right, yellow, #ffc400, salmon);
+  background-image: linear-gradient(to bottom right, #dfdf4e, #ffc400, salmon);
 }
 
 #confetti-container {
@@ -26,4 +26,10 @@ td {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
+}
+
+#tablebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

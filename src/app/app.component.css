@@ -1,0 +1,9 @@
+#title {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  color: white;
+  font-size: 30px;
+  font-stretch: expanded;
+  margin: -2.5rem;
+}
